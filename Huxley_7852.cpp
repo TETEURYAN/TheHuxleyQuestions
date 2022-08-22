@@ -11,3 +11,4 @@ int main ()
 	area = 3.14159*raio*raio;	
 	printf("Area = %.4lf\n", area);
 }
+// circle area
