@@ -14,8 +14,8 @@ int main ()
 	d=b*b-4*a*c;
 	
 	 if( a == 0){
-        printf("NEEQSG");
-        system("pause");
+        printf("NEESG");
+        
 	}
      if( d<0){
         printf("NRR");   
