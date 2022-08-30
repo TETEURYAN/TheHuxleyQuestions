@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//1532 - PREçO DA GASOLINA
+int main ()
+
+{ 
+	double L,A,G,D,A1,A2,G1,G2,D1,D2;
+	char T;
+	scanf("%lf", &L);
+	getchar();
+	scanf("%c", &T);
+	
+	A1 = 1.90*(L*0.97);
+	A2 = 1.90*(L*0.95);
+	
+	G1 = 2.50*(L*0.96);
+	G2 = 2.50*(L*0.94);
+	
+	D1 = 1.66*L;
+	D2 = 1.66*(L*0.96);
+	
+	if ( T=='A' && L<=20){
+		printf("R$ %.2lf",A1);	
+	}
+	else if (T== 'A' && L>=21){
+		printf("R$ %.2lf",A2);
+	}
+	if (T== 'G' && L<=20){
+		printf("R$ %.2lf",G1);
+	}
+	else if (T== 'G' && L>20){
+		printf("R$ %.2lf",G2);
+	} 
+	if (T== 'D' && L<=25){
+		printf("R$ %.2lf",D1);
+	}
+	else if (T== 'D' && L>25){
+		printf("R$ %.2lf",D2);
+	}
+	return 0;
+}
+	
+ 
+	
