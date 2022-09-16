@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+//3632 - ÍNDICE DE POLUIÇÃO
+int main(){
+	double poluicao;
+	scanf("%lf", &poluicao);
+	if(poluicao>=0.25 && poluicao<0.3){
+		printf("Grupo 1\n");
+	}
+	else if(poluicao>=0.3 && poluicao<0.4){
+		printf("Grupo 1\n");printf("Grupo 2\n");
+	}
+	else if(poluicao>=0.4){
+		printf("Grupo 1\n");printf("Grupo 2\n");printf("Grupo 3\n");
+	}
+	
+	
+}
