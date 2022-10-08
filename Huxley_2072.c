@@ -2,33 +2,44 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-// 2072 - MURALHA INFINITA
-void loop(int n, int moedas, char reino_passado, int x, int y)
+
+int total_moedas(int num, int money, char seta, int x, int y)
 {
-    if (n == 0){
-        printf("%d\n", moedas);
-        return;
-    }
     char movimento;
-    scanf (" %c", &movimento);
+    if (num == 0){
+        printf("%d\n", money);
+        return 0;
+    }
+    scanf (" %c ", &movimento);
 
-    if (movimento == 'C') y++;
-    else if (movimento == 'D') x++;
+    if(movimento == 'C'){
+         y++;
+         }
+    else if(movimento == 'D'){
+         x++;
+    }
 
-    if (reino_passado == 'b' && y < x) moedas ++;
-    else if (reino_passado == 'v' && y > x) moedas ++;
+    if(seta == 'b' && y < x){
+         money ++;
+         }
+    else if(seta == 'v' && y > x){
+         money ++;
+        }
+    if(y < x){
 
-    if (y < x) reino_passado = 'v';
-    else if (y > x) reino_passado = 'b';
-
-    loop(n - 1, moedas, reino_passado, x, y);
+     seta = 'v';
+    }
+    else if(y > x){
+         seta = 'b';
+    }
+    return total_moedas(num - 1, money, seta, x, y);
 }
 
 int main (void) {
-    int n;
-    scanf ("%d", &n);
+    int num;
+    scanf ("%d", &num);
 
-    loop(n, 0,'?', 0, 0);
+    total_moedas(num, 0,'?', 0, 0);
 
 	return 0;
 }
