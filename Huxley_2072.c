@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-
+//2072 - Infinite Wall
 int total_moedas(int num, int money, char seta, int x, int y)
 {
     char movimento;
