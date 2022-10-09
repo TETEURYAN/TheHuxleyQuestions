@@ -19,18 +19,18 @@ int total_moedas(int num, int money, char seta, int x, int y)
          x++;
     }
 
-    if(seta == 'b' && y < x){
+    if(seta == 'R2' && y < x){
          money ++;
          }
-    else if(seta == 'v' && y > x){
+    else if(seta == 'R1' && y > x){
          money ++;
         }
     if(y < x){
 
-     seta = 'v';
+     seta = 'R1';
     }
     else if(y > x){
-         seta = 'b';
+         seta = 'R2';
     }
     return total_moedas(num - 1, money, seta, x, y);
 }
