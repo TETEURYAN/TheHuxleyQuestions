@@ -2,40 +2,35 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-//1250 - POKÉMON BATTLE
-int rounda(int vida_clodes,int vida_bezaliel,int dano_clodes,int dano_bezaliel, int razao, int b){
-	if (dano_clodes >= vida_bezaliel && b == 1)
-	{
-		printf("Clodes\n"); return 0;
-	}
-	if(dano_clodes * razao >= vida_bezaliel)
-	{
-		printf("Clodes\n"); return 0;
-	}
-	if(dano_bezaliel * b >= vida_clodes)
-	{
-		printf("Bezaliel\n"); return 0;
-	}
-	rounda(vida_clodes, vida_bezaliel, dano_clodes+50, dano_bezaliel, razao, b+1);
-}		
-
-int batalhas(int rodadas){
-	int vida_clodes, vida_bezaliel, dano_clodes, dano_bezaliel, razao;
-	if(rodadas==0){
-		return 0;
-	}
-	else{
-		razao = vida_clodes/dano_bezaliel;
-		scanf("%i%i%i%i", &vida_clodes,&vida_bezaliel,&dano_clodes,&dano_bezaliel );
-		rounda(vida_clodes, vida_bezaliel, dano_clodes, dano_bezaliel, razao, 0);
-	}
-	return batalhas(rodadas-1);
+//1250 - POKEMON BATTLE
+int batalha (int turno, int dano_clodes,int vida_bezaliel, int num_dano)
+{
+    if (num_dano == turno){
+	    return 0;
+    }
+    if ((turno - num_dano) * (dano_clodes + 50 * num_dano) >= vida_bezaliel){
+	    return 1;
+    }
+    return batalha (turno, dano_clodes, vida_bezaliel, num_dano + 1);
 }
+void entradas (int entrada)
+{
+    if (entrada == 0) return;
 
-int main(){
-	int rodadas;
-	scanf("%i", &rodadas);
-	batalhas(rodadas);
-	
-	return 0;
+    int vida_clodes, vida_bezaliel, dano_clodes, dano_bezaliel;
+    scanf ("%d %d %d %d", &vida_clodes, &vida_bezaliel, &dano_clodes, &dano_bezaliel);
+    
+    int total = batalha(ceil((double) vida_clodes/dano_bezaliel), dano_clodes, vida_bezaliel, 0);
+
+	printf("%s", total ? "Clodes\n" : "Bezaliel\n");
+    
+	entradas (entrada - 1);
+}
+int main()
+{
+    int entrada;
+    scanf("%d", &entrada);
+
+    entradas (entrada);
+    
 }
