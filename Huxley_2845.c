@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 //2845 - books in the backpack
+//https://www.thehuxley.com/problem/2845
 void peso(int soma, int c)
 {
     int carga;
