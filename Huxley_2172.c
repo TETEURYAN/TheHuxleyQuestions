@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 //2172 - Run of the moles
+//https://thehuxley.com/problem/2172
 int total(int qtd, int pata)
 {
     if (pata > qtd){
