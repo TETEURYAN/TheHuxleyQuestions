@@ -2,10 +2,8 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-
 //1032 -  Quantas tocas existem?
 //https://thehuxley.com/problem/1032
-
 void input_array(int array[], int i, int tam)
 {
   if (i == tam)  return; 
@@ -42,7 +40,6 @@ int main()
     scanf("%d", &tamanho);
     int a[tamanho];
     input_array(a,0,tamanho);
-   
     printf("%d\n", conta_tocas(a,0,tamanho));
     
 }
