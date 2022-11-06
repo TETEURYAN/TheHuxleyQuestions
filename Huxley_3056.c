@@ -13,9 +13,15 @@ void input_array(int array[], int i, int tam)
   input_array(array, i+1, tam);
 }
 
-int printa_array(int array[], int i, int tam){
+int printa_array_d(int array[], int i, int tam){
     if(i == tam) return 0;
     if(array[i] == 1 && i != 9) printf("%d ", i);
+    printa_array_d(array, i+1, tam);
+}
+
+int printa_array(int array[], int i, int tam){
+    if(i == tam) return 0;
+    if(array[i] == 1) printf("%d ", i);
     printa_array(array, i+1, tam);
 }
 
@@ -65,14 +71,16 @@ int main()
     
     int direcao_esquerda = lado_esquerdo(picos,index_esquerda,0,0, tam);
     int direcao_direita = lado_direito(picos,index_direita,0,tam-1,0, tam);
-    if(!direcao_esquerda) printf("Nao ocorreu nenhum desabamento a esquerda\n");
-    else printf("Desabamento a esquerda: ");printa_array(index_esquerda, 1, tam);printf("\n");
+    if(!direcao_esquerda || tam<3) printf("Nao ocorreu nenhum desabamento a esquerda\n");
+    else{
+         printf("Desabamento a esquerda: ");printa_array_d(index_esquerda, 1, tam);printf("\n");
+    }
     
-    
-    if(!direcao_direita) printf("Nao ocorreu nenhum desabamento a direita\n");
-    else printf("Desabamento a direita: ");printa_array(index_direita, 1, tam);
-    
-
+    if(!direcao_direita || tam<3) printf("Nao ocorreu nenhum desabamento a direita\n");
+    else{
+         printf("Desabamento a direita: ");printa_array(index_direita, 1, tam);
+    }
+     
   return 0;
 
 }
