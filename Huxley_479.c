@@ -4,13 +4,13 @@
 //479 - Colisão no Mapa
 //https://thehuxley.com/problem/479
 
-void input_array(int i, int tam, char array[])
+void input_char(int i, int tam, char array[])
 {
 	if (i < tam)
 	{
 		array[i] = getchar();
-		if (array[i] != '\n') input_array(i + 1, tam, array);
-		else input_array(i, tam, array);
+		if (array[i] != '\n') input_char(i + 1, tam, array);
+		else input_char(i, tam, array);
 	}
 }
 
@@ -91,9 +91,9 @@ int main() {
     
     int tamanho_caracteres;
     scanf("%d", &tamanho_caracteres);
+	
     char movimento[tamanho_caracteres];
-    
-    input_array(0, tamanho_caracteres, movimento);
+    input_char(0, tamanho_caracteres, movimento);
     
     int linha_escolhida, coluna_escolhida;
     
