@@ -6,6 +6,22 @@
 //4030 - Peça no tabuleiro
 //https://thehuxley.com/problem/4030
 
+void input_char(int i, int tam, char array[])
+{
+	if (i < tam)
+	{
+		array[i] = getchar();
+		if (array[i] != '\n') 
+		{
+		    input_char(i + 1, tam, array);
+		}    
+		else 
+		{
+		    input_char(i, tam, array);
+		}   
+	}
+}
+
 void input_matriz (int i, int linha, int coluna, int matrix[][coluna])
 {
     if (i < linha * coluna)
@@ -16,45 +32,81 @@ void input_matriz (int i, int linha, int coluna, int matrix[][coluna])
     return;
 }
 
-int percorre_tab(char movimento[],int mov,int linha, int coluna, int tabuleiro[][coluna], int i, int j)
+int percorre_tabuleiro(char movimento[],int mov,int linha, int coluna, int tabuleiro[][coluna], int linha_escolhida, int coluna_escolhida, int nova_linha, int nova_coluna, int contador)
 {
-    int l = 0,ll = 0, c = 0;
     
-    for( c = 0; c <= mov; c ++)
+    
+    if(contador < mov+1)
     {
+        if(nova_linha == linha_escolhida && nova_coluna == coluna_escolhida || nova_coluna == coluna_escolhida && nova_linha == linha_escolhida) 
+        {
+            printf("Cheguei com %d movimentos\n", contador); 
+            return;
+        }
+       
+        else
+        {
+            
+            if(movimento[contador] == 'C')
+            {
+                if(!tabuleiro[nova_linha-1][nova_coluna])
+                {
+                    nova_linha--;
+                }
+                else 
+                {
+                    tabuleiro[nova_linha-1][nova_coluna] -= 1;
+                }
+            }
+            
+            if(movimento[contador] == 'B')
+            {
+                if(!tabuleiro[nova_linha+1][nova_coluna])
+                {
+                    nova_linha++;
+                }
+                else
+                {
+                    tabuleiro[nova_linha+1][nova_coluna] -= 1;
+                }
+            }
         
-        if(l == i && ll == j || ll == j && l == i) break;
-        else {
-        if(movimento[c] == 'C')
-        {
-            if(!tabuleiro[l-1][ll]) l--;
-            else tabuleiro[l-1][ll] -= 1;
+            if(movimento[contador] == 'D')
+            {
+                if(!tabuleiro[nova_linha][nova_coluna+1])
+                {
+                    nova_coluna++;
+                }
+                else
+                {
+                    tabuleiro[nova_linha][nova_coluna+1] -= 1;
+                }
+            }
+            
+            if(movimento[contador] == 'E')
+            {
+                if(!tabuleiro[nova_linha][nova_coluna-1])
+                {
+                    nova_coluna--;
+                }
+                else 
+                {
+                    tabuleiro[nova_linha][nova_coluna-1] -= 1;
+                }
+            }
         }
         
-        if(movimento[c] == 'B')
-        {
-            if(!tabuleiro[l+1][ll]) l++;
-            else tabuleiro[l+1][ll] -= 1;
-        }
-        if(movimento[c] == 'D')
-        {
-            if(!tabuleiro[l][ll+1]) ll++;
-            else tabuleiro[l][ll+1] -= 1;
-        }
-        if(movimento[c] == 'E')
-        {
-            if(!tabuleiro[l][ll-1]) ll--;
-            else tabuleiro[l][ll-1] -= 1;
-        }
-        }
+        percorre_tabuleiro(movimento, mov, linha, coluna, tabuleiro, linha_escolhida, coluna_escolhida, nova_linha, nova_coluna,++contador);
     }
-        if(c == mov+1) printf("Nao cheguei");
-        else printf("Cheguei com %d movimentos\n", c);
-        
+        else
+        {
+            printf("Nao cheguei");
+        }    
+    
 }
 
 int main() {
-    int linha, coluna,i;
+    int linha, coluna;
     scanf("%d%d", &linha, &coluna);
     
     int tabuleiro[linha][coluna];
@@ -64,13 +116,13 @@ int main() {
     scanf("%d", &mov);
     char movimento[mov];
     
-    for(i = 0; i < mov; i++)scanf(" %c", &movimento[i]);
+    input_char(0,mov,movimento);
     
-    int k, j;
+    int linha_escolhida, coluna_escolhida;
     
-    scanf("%d %d", &k, &j);
+    scanf("%d %d", &linha_escolhida, &coluna_escolhida);
     
-    percorre_tab(movimento,mov,linha,coluna,tabuleiro, k, j);
+    percorre_tabuleiro(movimento, mov, linha, coluna, tabuleiro, linha_escolhida, coluna_escolhida, 0, 0, 0);
     
 	return 0;
 }
