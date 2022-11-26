@@ -72,6 +72,6 @@ int main()
     percorre_matrix(0,tam,aux);
     troca_matrix(tam,0,1,matrix,aux);
     printa_matrix(0,0,tam,matrix);
-
+    
 
 }
