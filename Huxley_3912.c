@@ -3,21 +3,21 @@
 // 3912 - The Big Duel
 //https://thehuxley.com/problem/3912
 
-int CheckWinner (int size, char game[][size]) 
+int CheckWinner (int size, char game[][size])
 {
     char winner;
 
     for (int i = 0; i < size; i++) 
-    { 
-        if (game[i][0] == game[i][1] && game[i][0] == game[i][2]) {
+    {
+        if (game[i][0] == game[i][1] && game[i][0] == game[i][2]) 
+        {
             if (game[i][0] != '-') winner = game[i][0];
         }
     }
 
-    for (int i = 0; i < size; i++) 
-    {
-        if (game[0][i] == game[1][i] && game[0][i] == game[2][i]) 
-	{
+    for (int i = 0; i < size; i++) { // vitoria vertical
+        if (game[0][i] == game[1][i] && game[0][i] == game[2][i])
+        {
             if (game[0][i] != '-') winner = game[0][i];
         }
     }
@@ -48,17 +48,14 @@ void add_table(int i, char matrix[3][3], char simbolo)
 void print_matrix (int line, int column, int size, char array[][size])
 {
 	
-	if (line < size)
+	for( line = 0; line < size; line++)
 	{
-		if (column < size)
+		for( column = 0; column < size; column++)
 		{
 			printf("%c", array[line ][column]);
 			if(column == size-1) printf("\n");
-			print_matrix(line, ++column,size, array);
-			return;
 		}
 		column = 0;
-		print_matrix(++line, column, size, array);
 	}
     return;
 }
