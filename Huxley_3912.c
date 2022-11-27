@@ -3,25 +3,31 @@
 // 3912 - The Big Duel
 //https://thehuxley.com/problem/3912
 
-int CheckWinner (int size, char game[][size]) {
+int CheckWinner (int size, char game[][size]) 
+{
     char winner;
 
-    for (int i = 0; i < size; i++) { // vitoria horizontal
+    for (int i = 0; i < size; i++) 
+    { 
         if (game[i][0] == game[i][1] && game[i][0] == game[i][2]) {
             if (game[i][0] != '-') winner = game[i][0];
         }
     }
 
-    for (int i = 0; i < size; i++) { // vitoria vertical
-        if (game[0][i] == game[1][i] && game[0][i] == game[2][i]) {
+    for (int i = 0; i < size; i++) 
+    {
+        if (game[0][i] == game[1][i] && game[0][i] == game[2][i]) 
+	{
             if (game[0][i] != '-') winner = game[0][i];
         }
     }
 
-    if (game [0][0] == game[1][1] && game[0][0] == game[2][2]) {
+    if (game [0][0] == game[1][1] && game[0][0] == game[2][2]) 
+    {
         if(game[1][1] != '-') winner = game[1][1];
     }
-    if (game [0][2] == game[1][1] && game[0][2] == game[2][0]) {
+    if (game [0][2] == game[1][1] && game[0][2] == game[2][0]) 
+    {
         if(game[1][1] != '-') winner = game[1][1];
     }
     
