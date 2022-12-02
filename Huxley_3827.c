@@ -43,72 +43,8 @@ void input_char(int i, int tam, char array[])
 }
 
 
-int percorre_tab(int tam, int movimento[][tam], char sequencia[])
+int percorre_tab(int tam, int matrix1[][tam], char sequencia[])
 {
-    int dado;
-    int l = 0, ll = 0;
-
-    scanf("%d", &dado);
-
-    for( int i = 0; i < dado; i++)
-    {
-        int qtd, posicao, nova_linha, nova_coluna;
-
-        scanf("%d%d", &qtd, &posicao);
-
-        for( int i = 0; i<qtd; i++)
-        {
-            if(sequencia[posicao] == 'C' && movimento[l-1][ll] ==1 )
-            {
-                l --;
-            }
-            if(sequencia[posicao] == 'B' && movimento[l+1][ll] == 1)
-            {
-                l ++;
-            }
-            if(sequencia[posicao] == 'D' && movimento[l][ll+1] == 1)
-            {
-                ll ++;
-            }
-            if(sequencia[posicao] == 'E' && movimento[l][ll - 1] == 1)
-            {
-                ll --;
-            }
-        }
-            printf("%d %d\n", l, ll);
-
-    }
-    return ((l && ll) == tam-1) ? 1 : 0;
-}
-
-int main()
-{
-    
-    int tamanho;
-    
-    scanf("%d", &tamanho);
-    
-    tamanho = sqrt(tamanho);
-    
-    //printf("%d", tamanho);
-
-    int matrix1[tamanho][tamanho];
-
-    input_matrix(0,tamanho,tamanho,matrix1);
-    //print_matrix(0,0,tamanho, matrix1);
-
-    int tamanho_sequencia = 4;
-
-    char sequencia[tamanho_sequencia];
-
-    input_char(0, tamanho_sequencia, sequencia);
-    
-    //printf("\n");
-
-    //printf("\n");
-    
-
-    //printf("%d\n", percorre_tab(tamanho, matrix1, sequencia));
     int dado;
     int l = 0, ll = 0;
 
@@ -144,7 +80,38 @@ int main()
     }
     
     //printf("%d\n", tamanho - 1);
-    printf("%s", (ll == tamanho-1 && l == tamanho-1)? "EU PASSEI EM P1" : "AINDA TENHO CHANCE NA REAV");
-  
+    printf("%s", (ll == tam-1 && l == tam-1)? "EU PASSEI EM P1" : "AINDA TENHO CHANCE NA REAV");
+
+} 
+
+int main()
+{
+    
+    int tamanho;
+    
+    scanf("%d", &tamanho);
+    
+    tamanho = sqrt(tamanho);
+    
+    //printf("%d", tamanho);
+
+    int matrix1[tamanho][tamanho];
+
+    input_matrix(0,tamanho,tamanho,matrix1);
+    //print_matrix(0,0,tamanho, matrix1);
+
+    int tamanho_sequencia = 4;
+
+    char sequencia[tamanho_sequencia];
+
+    input_char(0, tamanho_sequencia, sequencia);
+    
+    //printf("\n");
+
+    //printf("\n");
+    
+
+   percorre_tab(tamanho, matrix1, sequencia);
+   
     return 0;
 }
