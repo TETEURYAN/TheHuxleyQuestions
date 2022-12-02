@@ -43,7 +43,7 @@ void input_char(int i, int tam, char array[])
 }
 
 
-int percorre_tab(int tam, int matrix1[][tam], char sequencia[])
+bool percorre_tab(int tam, int matrix1[][tam], char sequencia[])
 {
     int dado;
     int l = 0, ll = 0;
@@ -56,7 +56,7 @@ int percorre_tab(int tam, int matrix1[][tam], char sequencia[])
 
         scanf("%d%d", &qtd, &posicao);
 
-        for( int j = 0; j<qtd; j++)
+        for( int j = 0; j < qtd; j++)
         {
             if(sequencia[posicao-1] == 'C' && matrix1[l-1][ll] == 1)
             {
@@ -75,12 +75,9 @@ int percorre_tab(int tam, int matrix1[][tam], char sequencia[])
                 ll--;
             }
         }
-            //printf("%d %d\n", l, ll);
-
     }
     
-    //printf("%d\n", tamanho - 1);
-    printf("%s", (ll == tam-1 && l == tam-1)? "EU PASSEI EM P1" : "AINDA TENHO CHANCE NA REAV");
+    return (ll == tam-1 && l == tam-1) ? true : false;
 
 } 
 
@@ -99,7 +96,8 @@ int main()
     char sequencia[tamanho_sequencia];
     input_char(0, tamanho_sequencia, sequencia);
     
-    percorre_tab(tamanho, matrix1, sequencia);
+    int n = percorre_tab(tamanho, matrix1, sequencia);
    
+    printf("%s", n ? "EU PASSEI EM P1" : "AINDA TENHO CHANCE NA REAV");
     return 0;
 }
