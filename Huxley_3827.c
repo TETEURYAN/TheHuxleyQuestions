@@ -87,31 +87,19 @@ int percorre_tab(int tam, int matrix1[][tam], char sequencia[])
 int main()
 {
     
-    int tamanho;
-    
+    int tamanho; 
     scanf("%d", &tamanho);
-    
     tamanho = sqrt(tamanho);
     
-    //printf("%d", tamanho);
-
     int matrix1[tamanho][tamanho];
-
     input_matrix(0,tamanho,tamanho,matrix1);
-    //print_matrix(0,0,tamanho, matrix1);
+  
 
     int tamanho_sequencia = 4;
-
     char sequencia[tamanho_sequencia];
-
     input_char(0, tamanho_sequencia, sequencia);
     
-    //printf("\n");
-
-    //printf("\n");
-    
-
-   percorre_tab(tamanho, matrix1, sequencia);
+    percorre_tab(tamanho, matrix1, sequencia);
    
     return 0;
 }
