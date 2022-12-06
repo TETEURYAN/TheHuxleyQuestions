@@ -16,7 +16,7 @@ lli recursive(int n, int *par, int *impar)
 
 int main()
 {
-    lli i = 0, n, par = 0, impar = 0;
+    lli n, par = 0, impar = 0;
     scanf("%lld", &n);
 
     recursive(n, &par, &impar);
