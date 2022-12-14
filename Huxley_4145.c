@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//4151 - Bate essa pule pae!
+//4145 - Bate essa pule pae!
 //https://thehuxley.com/problem/4145
 
 int main()
