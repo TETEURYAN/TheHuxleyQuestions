@@ -2,7 +2,10 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+
 //1250 - POKEMON BATTLE
+//https://thehuxley.com/problem/3924
+
 int batalha (int turno, int dano_clodes,int vida_bezaliel, int num_dano)
 {
     if (num_dano == turno){
