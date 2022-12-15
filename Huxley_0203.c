@@ -1,6 +1,8 @@
 #include <stdio.h>
+
 //203 - Pulo do Sapo
 //https://thehuxley.com/problem/203
+
 void procuratras(int p[], int sap, int sal, int tam)
 {
     if (tam == 0) return;
@@ -71,5 +73,6 @@ int main()
 
     quantidade(pedras, sapos, saltos, 0, saposnum, paredes);
     print_casos(pedras, 0, paredes);   
+    
     return 0;
 }
