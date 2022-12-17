@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 void coleta_matriz(int linhas, int colunas, int matriz[linhas][colunas]){
      for(int i =0; i < linhas; i++){
         for(int j =0; j< colunas; j++){
