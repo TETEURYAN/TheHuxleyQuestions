@@ -171,6 +171,8 @@ void ataque_rei(int campo[8][8], int m[8][8], int x, int y)
                 m[i][j] = 1;
 }
  
+
+/*
 int main()
 {
 /*
@@ -235,3 +237,4 @@ int main()
  
     return 0;
 }
+*/
