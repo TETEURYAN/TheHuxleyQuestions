@@ -1,3 +1,5 @@
+
+//1º solução
 #include <stdio.h>
 
 
@@ -172,13 +174,14 @@ void ataque_rei(int campo[8][8], int m[8][8], int x, int y)
 }
  
 
+//2º solução
 /*
 int main()
 {
-/*
+
     Explicacao do algoritmo, pra cada peça atacante, guardo todas as casas sendo atacadas em uma matriz
     com isso, checaremos se todas as casas em volta do rei estao sendo atacadas
-*/
+
  
     int campo[8][8], atacadas[8][8] = {0}, rei_x, rei_y, afogamento = 0, cheque = 0;
     
@@ -237,4 +240,71 @@ int main()
  
     return 0;
 }
+
+
+//3º solução
+
+#include<stdio.h>
+#include<string.h>
+ 
+#define DEBUG() if(0)
+ 
+void tower_atack(int i, int j, int tab[8][8]) {
+    for(int k = 0; k < 8; k++) {
+        for(int w = 0; w < 8; w++) {
+            tab[k][w] += (i == k || w == j);
+        }
+    }
+}
+ 
+short out(int x, int y) {
+    return x < 0 || x >= 8 || y < 0 || y >= 8;
+}
+ 
+void king_atack(int i, int j, int tab[8][8]) {
+    int dx[8] = {1, -1, 0, 0, -1, -1, 1, 1}, dy[8] = {0, 0, 1, -1, -1, 1, -1, 1};
+    tab[i][j] += 1;
+    for(int k = 0; k < 8; k++) {
+        if(!out(i + dx[k], j + dy[k]))
+            tab[i + dx[k]][j + dy[k]] += 1;
+    }
+}
+ 
+void free_pos_king(int x, int y, int tab[8][8]) {
+    short free_pos = 0;
+    int count = 0;
+    int dx[8] = {1, -1, 0, 0, -1, -1, 1, 1}, dy[8] = {0, 0, 1, -1, -1, 1, -1, 1};
+    for(int k = 0; k < 8; k++) {
+        count += (out(x + dx[k], y + dy[k]) || tab[x + dx[k]][y + dy[k]]);
+    }
+    if(count == 8) {
+        if(tab[x][y]) printf("Xeque-mate\n");
+        else printf("Afogado\n");
+    } else  printf("Nao ocorreu ainda\n");
+}
+ 
+ 
+int main() {
+    int tab[8][8];
+    memset(tab, 0, sizeof(tab));
+    int x, y, p;
+    for(int i = 0; i < 8; i++) {
+        for(int j = 0; j < 8; j++) {
+            scanf("%d", &p);
+            if(p == 3) {
+                x = i;
+                y = j;
+            } else if(p == 1) {
+                DEBUG() printf("tower on: [%d, %d]\n", i, j);
+                tower_atack(i, j, tab);
+            } else if(p == 2) {
+                DEBUG() printf("enemy king on: [%d, %d]\n", i, j);
+                king_atack(i, j, tab);
+            }
+        }
+    }
+    free_pos_king(x, y, tab);
+    return 0;
+}
+
 */
