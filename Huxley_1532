@@ -10,7 +10,7 @@ int main ()
 	double L,A,G,D,A1,A2,G1,G2,D1,D2;
 	char T;
 	scanf("%lf", &L);
-	getchar();
+	//getchar();
 	scanf("%c", &T);
 	
 	A1 = 1.90*(L*0.97);
