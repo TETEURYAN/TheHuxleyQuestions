@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 //1532 - PREçO DA GASOLINA
+https://thehuxley.com/problem/31532
 int main ()
 
 { 
@@ -21,24 +22,31 @@ int main ()
 	D1 = 1.66*L;
 	D2 = 1.66*(L*0.96);
 	
-	if ( T=='A' && L<=20){
+	if ( T=='A' && L<=20)
+	{
 		printf("R$ %.2lf",A1);	
 	}
-	else if (T== 'A' && L>=21){
+	else if (T== 'A' && L>=21)
+	{
 		printf("R$ %.2lf",A2);
 	}
-	if (T== 'G' && L<=20){
+	if (T== 'G' && L<=20)
+	{
 		printf("R$ %.2lf",G1);
 	}
-	else if (T== 'G' && L>20){
+	else if (T== 'G' && L>20)
+	{
 		printf("R$ %.2lf",G2);
 	} 
-	if (T== 'D' && L<=25){
+	if (T== 'D' && L<=25)
+	{
 		printf("R$ %.2lf",D1);
 	}
-	else if (T== 'D' && L>25){
+	else if (T== 'D' && L>25)
+	{
 		printf("R$ %.2lf",D2);
 	}
+	
 	return 0;
 }
 	
