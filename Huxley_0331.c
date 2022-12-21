@@ -26,6 +26,7 @@ void ler(struct banco d[], int qtd, int i)
     }
 }
 
+
 int main()
 {
     int num;
