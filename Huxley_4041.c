@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 //4041 - Crazy tournament
+//https://thehuxley.com/problem/4041
 
 int entrada(int i, char *winner, double maior)
 {
