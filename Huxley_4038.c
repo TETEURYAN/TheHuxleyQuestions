@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//4038 - Matriz dentro de outra matriz?
+
 void read_matriz(int linha, int coluna, int matrixOne[][coluna])
 {
     for(int i = 0; i < linha; i++)
