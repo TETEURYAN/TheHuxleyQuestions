@@ -12,7 +12,6 @@ void read_matriz(int linha, int coluna, int matrixOne[][coluna])
 
 void solve(int *repeat, int tam_second_matriz, int lineOne, int columnOne, int lineTwo, int columnTwo, int matrixOne[][columnOne], int matrixTwo[][columnTwo])
 {
- 
   for(int i = 0; i < lineOne; i++)
     for(int j = 0; j < columnOne; j++)
     {
@@ -34,7 +33,9 @@ void solve(int *repeat, int tam_second_matriz, int lineOne, int columnOne, int l
     }
   
 }
-int main(void) {
+
+int main(void) 
+{
     int lineOne, columnOne;
     scanf("%d %d", &lineOne, &columnOne);
     int matrixOne[lineOne][columnOne];
