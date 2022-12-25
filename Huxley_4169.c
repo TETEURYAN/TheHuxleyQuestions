@@ -10,7 +10,6 @@ int solve( int livro, int celular, int roupa, char *ultimo_livro, char *ultimo_c
 {
     if( i > 0)
     {
-        //printf("%d %d %d\n", livro, celular, roupa);
         char id[21];
         scanf("%s", id);
         
