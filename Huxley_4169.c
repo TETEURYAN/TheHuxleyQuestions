@@ -8,6 +8,7 @@
 
 int solve( int livro, int celular, int roupa, char *ultimo_livro, char *ultimo_celular, char *ultimo_roupa, int i)
 {
+	
     if( i > 0)
     {
         char id[21];
