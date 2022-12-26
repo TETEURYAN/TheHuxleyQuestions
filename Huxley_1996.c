@@ -10,24 +10,25 @@ void read_matriz(int linha, int coluna, char matrixOne[][coluna])
           scanf("%c", &matrixOne[i][j]);
 }
 
-bool rule_one(int linha, int coluna, char matriz[][coluna])
+int rule_one(int linha, int coluna, char matriz[][coluna])
 {
-    int i, j;
+    int i, j, contador = 0;
     for( i = 0; i < linha; i++)
     {
         for(j = 0; j < coluna; j++)
         {
-            if(!(i%2))
+            if(!(j%2))
             {
-                if(matriz[i][j] != 'g') return false;
+                if(matriz[i][j] == 'g') contador++;
             }
-            if(i%2 != 0)
+            if(j%2 != 0)
             {
-                if(matriz[i][j] != 'p') return false;
+                if(matriz[i][j] == 'p') contador++;
             }
         }    
-    }        
-    return true;       
+    }   
+    printf("%d\n", contador);
+    return (contador>0) ? 1 : 0;       
 }
 
 bool rule_two(int linha, int coluna, char matriz[][coluna])
@@ -62,24 +63,46 @@ bool rule_three(int linha, int coluna, char matriz[][coluna])
 
 bool rule_four(int linha, int coluna, char matriz[][coluna])
 {
-    int suspeito = 0; int guardas = 0;
+    int suspeitos = 0; int guardas = 0;
     for(int i = 0; i < linha; i++)
-        for(int j = 0; j > coluna; j++)
-        {
-            if()
-            if(matriz[i][j] == 'i' || matriz[i][j] == 's' ) suspeitos++; 
-            if(matriz[i][j] == 'g' ) guardas++; 
-        }
+    {
+        if(matriz[i][0] == 's' || matriz[i][0] == 'i') suspeitos++;
+        if(matriz[i][0] == 'g' ) guardas++;
+        
+        if(matriz[i][coluna-1] == 's' || matriz[i][coluna-1] == 'i') suspeitos++;
+        if(matriz[i][coluna-1] == 'g' ) guardas++;
+    }
     
+    for(int i = 0; i < coluna; i++)
+    {
+        if(matriz[0][i] == 's' || matriz[0][0] == 'i') suspeitos++;
+        if(matriz[0][i] == 'g' ) guardas++;
+        
+        if(matriz[linha-1][i] == 's' || matriz[linha-1][i] == 'i') suspeitos++;
+        if(matriz[linha-1][i] == 'g' ) guardas++;
+    }
     
-       
-    return (guardas > suspeitos);       
+    return (suspeitos > guardas) ? true : false;       
 }
-
 
 void solve( int linha, int coluna, char matriz[][coluna])
 {
-    
+    if( !rule_one && !rule_two && !rule_three && !rule_four) printf("AZUL");
+    else 
+    {
+        if(rule_one)printf("BRANCO\n");
+        else printf("TRANSPARENTE\n");
+        
+        if(rule_two)printf("AMARELO\n");
+        else printf("TRANSPARENTE\n");
+        
+        if(rule_three)printf("LARANJA\n");
+        else printf("TRANSPARENTE\n");
+        
+        if(rule_four)printf("VERMELHO\n");
+        else printf("TRANSPARENTE\n");
+    }
+    return;
 }
 
 int main() 
