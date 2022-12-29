@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// 869 - carrosel
+
 int seq(int a[], int n, int i)
 {
     int resp = 1;
