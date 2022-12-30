@@ -2,6 +2,7 @@
 
 //2846 - Turn presents
 //https://thehuxley.com/problem/2846
+
 void entrada( double *tot, int *controca, int i)
 {
     if( i < 6)
