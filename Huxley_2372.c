@@ -2,7 +2,10 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-//Numeros pares
+
+//2372 - Numeros pares
+//https://thehuxley.com/problem/2372
+
 int main() 
 {
     int num;
