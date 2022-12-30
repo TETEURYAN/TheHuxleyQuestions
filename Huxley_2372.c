@@ -2,7 +2,6 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-
 //2372 - Numeros pares
 //https://thehuxley.com/problem/2372
 
