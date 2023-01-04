@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <math.h>
+
 //925 - Triângulo.
 
 double distanciaEntreDoisPontos(double xa, double ya) {
     return sqrt(pow(0.0 - xa, 2.0) + pow(0.0 - ya, 2.0));
 }
+
 int main(){
 	double a,b,c;
 	scanf("%lf%lf%lf", &a, &b, &c);
