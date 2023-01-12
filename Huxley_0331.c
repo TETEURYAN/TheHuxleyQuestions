@@ -1,15 +1,17 @@
 #include <stdio.h>
 
-struct banco{
+//331 - Banco de dados
+
+typedef struct {
     int idade;
     char nome[51];
     char sexo;
     char civil;
     int qtdAmigos;
     int qtdFotos;
-};
+}banco;
 
-void ler(struct banco d[], int qtd, int i)
+void input_struct(banco d[], int qtd, int i)
 {
     if(i < qtd)
     {
@@ -20,20 +22,14 @@ void ler(struct banco d[], int qtd, int i)
         scanf(" %c", &d[i].sexo);
         scanf(" %c", &d[i].civil);
         scanf("%d %d", &d[i].qtdAmigos, &d[i].qtdFotos);
-        ler(d,qtd,++i);
+        input_struct(d,qtd,++i);
     }
     return;
     }
 }
 
-
-int main()
+void printa_struct(banco dados[], int num)
 {
-    int num;
-    scanf("%d", &num);
-    struct banco dados[num];
-    ler(dados, num, 0);
-
     int i;
     for (i = 0; i < num; i++)
     {
@@ -41,6 +37,16 @@ int main()
         printf("Estado Civil: %c\nNumero de amigos: %d\nNumero de fotos: %d\n", dados[i].civil, dados[i].qtdAmigos, dados[i].qtdFotos);
         printf("\n");
     }
+}
+
+int main()
+{
+    int num;
+    scanf("%d", &num);
+    
+    banco dados[num];
+    input_struct(dados, num, 0);
+    printa_struct(dados, num);
 
     return 0;    
 }
