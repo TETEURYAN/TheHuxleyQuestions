@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-//Exponential Expansion
-//ainda resolvendo
+//4043 - Exponential Expansion
+//https://thehuxley.com/problem/4043
 
-double e(long long int x,long long int n){
+double e(float x,long long int n, int *inte){
     static double p=1,f=1;
     double r;
     if(n==0)
@@ -13,10 +13,11 @@ double e(long long int x,long long int n){
     else
     {
         
-        r = e(x,n-1);
+        r = e(x,n-1, inte);
         p=p*x;
         f=f*n;
-        printf("e^%lli.0 com %lli iteracoes -> %.5lf\n", x, n - 1, r);
+        printf("e^%.1f com %lli iteracoes -> %.5lf\n", x, n - 1, r);
+        *inte = n-1;
         return r+p/f;
     }
 }
@@ -25,15 +26,17 @@ double e(long long int x,long long int n){
 int main()
 {
     
-    long int num;
-    scanf("%lli", &num);
+    float num;
+    scanf("%f", &num);
     
-    long long int func = 7 + ((num-1)*3);
+    float func = 7 + ((num-1)*3);
+    int def = (num == 1) ? 1 : num*10;
     
-   if(num == 10) func = 33;
+    func = (num > 1 && def%2 != 0) ? ceil(func) : func;
+ 
+    int inte = 0;
+    e(num,func+1, &inte);
     
-    e(num,func+1);
-    
-    printf("\nNumero de iteracoes -> %lli", func);
+    printf("\nNumero de iteracoes -> %d", inte);
     return 0;
 }
