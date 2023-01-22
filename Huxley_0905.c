@@ -2,7 +2,10 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+
 //905 - VALORES DIGITADOS
+//https://thehuxley.com/problem/905
+
 int main() {
     int qtd = 6;
     int n;
