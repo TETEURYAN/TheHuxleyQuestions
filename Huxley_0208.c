@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <math.h>
+
 //208 - Selos
 //https://thehuxley.com/problem/208
+
 int main()
 {
   long long int selos; int razao;
