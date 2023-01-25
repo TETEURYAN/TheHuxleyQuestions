@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include<stdbool.h>
+
 //180 - Elevator
+
 int passou(int entrada, int capacidade, int i, int agora)
 {
     if (i > entrada)return false;
