@@ -3,6 +3,9 @@
 #include <iso646.h>
 #include <stdlib.h>
 
+//2395 - E/S CPF
+//https://thehuxley.com/problem/2395
+
 void input_string(char *nickname, int i, int tam) 
 {
     char c = getchar();
