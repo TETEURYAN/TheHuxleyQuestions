@@ -1,7 +1,8 @@
 #include<stdbool.h>
 #include<iso646.h>
-#include<math.h>
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 void putarray(int *array, int tam)// Recursive function to input array
 {
@@ -15,7 +16,7 @@ void printarray( int *array, int tam)
         printf("%d ", array[i]);
 }
 
-void remove(int * arr, int * tam, int i)
+void removed(int * array, int * tam, int i)
 {
     for(; i < *tam; i++)
         array[i] = array[i + 1];
@@ -28,9 +29,9 @@ void removequal(int * arr, int * tam)
     {
         for( int j = i + 1; j < *tam; )
         {
-            if( arr->array[j] == arr->array[i] )
+            if( arr[j] == arr[i] )
             {
-                remove(arr, tam, j);
+                removed(arr, tam, j);
                 *tam = *tam - 1;
             }
             else j++;
@@ -40,6 +41,7 @@ void removequal(int * arr, int * tam)
 
 void intersec(int * arr1, int tam_arrayOne, int * arr2, int tam_arrayTwo, int * intersec, int * tam_intersec)
 {
+  int o = 0;
   for(int i=0; i<tam_arrayOne; i++)
   {
     for(int k=0; k < tam_arrayTwo; k++)
@@ -94,7 +96,7 @@ void sorting(int *array, int right, int mid, int left){
     int aux2 = mid+1;
 
     int *temp = (int *) malloc(tam*sizeof(int));
-    if(temp != NULL)
+    if(temp not_eq NULL)
     {
         for(i=0; i<tam; i++){
             if(not fim1 and not fim2)
