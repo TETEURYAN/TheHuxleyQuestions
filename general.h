@@ -117,9 +117,7 @@ int initar(int *array)
 int endar(int * array)
 {
     int tam = sizeof(array)/sizeof(int);
-
     return array[tam-1];
-
 }
 
 int toint(char *string)
@@ -163,55 +161,6 @@ int search(int *original, int elem, int left)
         }
         mid = (left + rigth)/2;
     }
-<<<<<<< HEAD
     free(copia);
     return false;
 }
-=======
-  
-       return -1;
-}
-
-void sorting(int *array, int right, int mid, int left){
-    int i, j, k;
-    int fim1 = 0, fim2 = 0;
-    int tam = left-right+1;
-    int aux1 = right;
-    int aux2 = mid+1;
-
-    int *temp = (int *) malloc(tam*sizeof(int));
-    if(temp not_eq NULL)
-    {
-        for(i=0; i<tam; i++){
-            if(not fim1 and not fim2)
-            {
-                if(array[aux1] < array[aux2]) temp[i]=array[aux1++];
-                else temp[i] = array[aux2++];
-
-                if(aux1>mid) fim1 = 1;
-                if(aux2>left) fim2 = 1;
-            }
-            else
-            {
-                if(!fim1) temp[i] = array[aux1++];
-                else temp[i] = array[aux2++];
-            }
-        }
-        for(j=0, k = right; j < tam; j++, k++) array[k] = temp[j];
-    }
-    free(temp);
-}
-
-void sort(int *array, int right, int left)
-{
-    
-    if(right < left)
-    {
-        int mid = floor((right+left)/2);
-
-        sort(array,right,mid);
-        sort(array,mid+1,left);
-        sorting(array,right,mid,left);
-    }
-}
->>>>>>> 21292cc8c55d1544fa750e627d331f3c6aac71fe
