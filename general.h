@@ -57,6 +57,22 @@ void printarray( int *array, int tam)
         printf("%d ", array[i]);
 }
 
+void invert(int * array, int tam)
+{
+    int *copia = (*int) calloc(tam,sizeof(int));
+    copy(array, copia, tam);
+
+    for(int i = 0; tam > (-1); i++; tam--)
+        array[i] = copia[tam];
+    free(copia);    
+}
+
+void add(int * array, int index, int * tam)
+{
+    array[*tam] = index;
+    *tam = *tam +1;
+}
+
 void removed(int * array, int * tam, int i)
 {
     for(; i < *tam; i++)
@@ -97,15 +113,15 @@ void intersec(int * arr1, int tam_arrayOne, int * arr2, int tam_arrayTwo, int * 
   *tam_intersec = o;
 }
 
-void concater(int arrayOne[],int tamOne, int arrayTwo[],int tamTwo,int arrauTrhee[])
+void concater(int arrayOne[],int tamOne, int arrayTwo[],int tamTwo,int arrayTrhee[])
 {
     int i;
     for(i=0;i < tamOne;i++)
     {
         if(i < tamTwo)
-            arrauTrhee[i]=arrayOne[i];
+            arrayTrhee[i]=arrayOne[i];
         else
-            arrauTrhee[i] = arrayTwo[i-(tamTwo)];
+            arrayTrhee[i] = arrayTwo[i-(tamTwo)];
     }
 }    
 
