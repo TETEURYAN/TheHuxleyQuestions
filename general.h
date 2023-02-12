@@ -124,7 +124,7 @@ void intersec(int * arr1, int tam_arrayOne, int * arr2, int tam_arrayTwo, int * 
 void concater(int arrayOne[],int tamOne, int arrayTwo[],int tamTwo,int arrayTrhee[])
 {
     int i;
-    for(i=0;i < tamOne;i++)
+    for(i=0;i < tamOne + tamTwo;i++)
     {
         if(i < tamTwo)
             arrayTrhee[i]=arrayOne[i];
@@ -155,7 +155,7 @@ int toint(char *string)
 }
 
 
-int search(int *original, int elem, int left)
+bool search(int *original, int elem, int left)
 {
     int rigth = 0;
     int mid = (left + rigth)/2;
