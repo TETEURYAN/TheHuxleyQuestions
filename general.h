@@ -70,8 +70,8 @@ void invert(int * array, int tam)
     int *copia =  calloc(tam,sizeof(int));
     copy(array, copia, tam);
 
-    for(int i = 0; tam > (-1); i++, tam--)
-        array[i] = copia[tam];
+    for(int i = 0; (tam) > (-1); i++, tam--)
+        array[i] = copia[tam-1];
     free(copia);    
 }
 
@@ -163,6 +163,7 @@ bool search(int *original, int elem, int left)
     int *copia =  calloc(left,sizeof(int));
     copy(original, copia, left);
     sort(copia, 0, left);
+    //printarray(copia, left);
 
     while(rigth <= left)
     {
