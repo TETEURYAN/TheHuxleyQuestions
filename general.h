@@ -59,12 +59,18 @@ void printarray( int *array, int tam)
         printf("%d ", array[i]);
 }
 
+void copy(int * array, int * copia, int tam)
+{
+    for(int i = 0; i < tam; i++)
+        copia[i] = array[i];
+}
+
 void invert(int * array, int tam)
 {
-    int *copia = (*int) calloc(tam,sizeof(int));
+    int *copia =  calloc(tam,sizeof(int));
     copy(array, copia, tam);
 
-    for(int i = 0; tam > (-1); i++; tam--)
+    for(int i = 0; tam > (-1); i++, tam--)
         array[i] = copia[tam];
     free(copia);    
 }
@@ -148,18 +154,13 @@ int toint(char *string)
     return num;
 }
 
-void copy(int * array, int * copia, int tam)
-{
-    for(int i = 0; i < tam; i++)
-        copia[i] = array[i];
-}
 
 int search(int *original, int elem, int left)
 {
     int rigth = 0;
     int mid = (left + rigth)/2;
 
-    int *copia = (*int) calloc(left,sizeof(int));
+    int *copia =  calloc(left,sizeof(int));
     copy(original, copia, left);
     sort(copia, 0, left);
 
