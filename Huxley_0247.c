@@ -6,7 +6,10 @@
 
 int inverte( char str[], int i)
 {
-    if(i == 0){printf("\n"); return 0;}
+    if(i == 0)
+    {
+        printf("\n"); return 0;
+    }
     else printf("%c", str[i-1]);
     return inverte(str, i-1);
 }
