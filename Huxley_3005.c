@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+
 // 3005 - TORCEDOR FANÁTICO
 
 double Dcasa( double casa, double clima, double pessoa, double lesao, double entro){
