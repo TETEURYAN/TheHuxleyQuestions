@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 //341 - Preço dos jogos
 //https://www.thehuxley.com/problem/341
+
 void conta_total(int contador,double dificuldade[], int i, int n, double preco,int indice){
     if (indice==0)
     {
