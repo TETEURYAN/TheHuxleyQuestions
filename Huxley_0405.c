@@ -2,7 +2,9 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+
 //405 - CONTANDO OS DIGITOS PARES
+
 int par(int num, int i){
     int pares;
     if(num==0){
