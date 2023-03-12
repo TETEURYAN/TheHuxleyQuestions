@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 //3121 - TAMANHO DA CAVERNA
 
 int main(){
