@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 //396 -Down with the pollution
 //https://www.thehuxley.com/problem/396/code-editor/
+
 double loop(int c, int j)
 {
     int num;
