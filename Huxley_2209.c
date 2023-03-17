@@ -93,4 +93,84 @@ int main (void) {
     return 0;
 }
 
+/*
+
+//Versão de Matheus Ryan
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <iso646.h>
+
+typedef struct tree{
+    char info;
+    struct tree *right, *left;
+}tree;
+
+void geTree(tree **list, int num)
+{
+        tree *root = malloc(sizeof(tree));
+        root->info = num;
+        root->left = NULL;
+        root->right = NULL;
+        
+        *list = root;
+}
+
+void inserTree(tree **root, char num){
+    if(not *root)
+        geTree(root, num);
+    
+    else
+    {
+        if(num < (*root)->info)
+            inserTree(&((*root)->left), num);
+        else
+            inserTree(&((*root)->right), num);
+    }
+    
+}
+
+void initletter(tree ** root)
+{
+    inserTree(root, 'M'); inserTree(root, 'G');
+    inserTree(root, 'T'); inserTree(root, 'C');
+    inserTree(root, 'K'); inserTree(root, 'Q');
+    inserTree(root, 'W'); inserTree(root, 'A');
+    inserTree(root, 'E'); inserTree(root, 'I');
+    inserTree(root, 'L'); inserTree(root, 'O');
+    inserTree(root, 'R'); inserTree(root, 'U');
+    inserTree(root, 'Y'); inserTree(root, ' ');
+    inserTree(root, 'B'); inserTree(root, 'D');
+    inserTree(root, 'F'); inserTree(root, 'H');
+    inserTree(root, 'J'); inserTree(root, 'N');
+    inserTree(root, 'P'); inserTree(root, 'S');
+    inserTree(root, 'V'); inserTree(root, 'X');
+    inserTree(root, 'Z');
+
+}
+
+void fillTree(tree * root)
+{
+    char letter;
+
+    tree * aux = root;
+    while(scanf("%c", &letter) not_eq EOF)
+    {
+        if(letter == '-')
+            aux = aux->left;
+        else if(letter == '|')
+            aux = aux->right;
+        else if(letter == '*')
+            printf("%c", aux->info), fillTree(root);
+    }
+}
+
+
+void main()
+{
+    tree *arvore = NULL;
+    initletter(&arvore);
+    fillTree(arvore);
+}
+*/
 
