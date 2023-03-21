@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 //3895 - A VIAGEM
 
 double Dsem( double sal, double tarifa, double dikm, double km){
