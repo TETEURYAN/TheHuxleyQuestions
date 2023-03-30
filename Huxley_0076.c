@@ -1,10 +1,10 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 // 76 - proofreading
 //https://thehuxley.com/problem/76
+
 void printa_array(int i, int tam, int numAluno[], double notas[])
 {
 	if (i < tam)
