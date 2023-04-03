@@ -1,142 +1,80 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
+#include <stdbool.h>
 
 //4105 - Produção de leite
+//https://www.thehuxley.com/problem/410
 
-void exec(int day, int limit, int p_kcaj, int p_ordep, double sum_kcaj, double sum_ordep);
-int eh_primo(int n, int div);
-int eh_coprimo(int n1, int n2, int div );
-int sum_digits(int number);
-int fatorial(int number);
-
-
-int main() {
-    int days, p_kcaj, p_ordep;
-
-
-    scanf("%d %d %d", &days, &p_kcaj, &p_ordep);
-
-    exec(1, days, p_kcaj, p_ordep, 0 ,0);
-
-	return 0;
-}
-
-void exec(int day, int limit, int p_kcaj, int p_ordep, double sum_kcaj, double sum_ordep){
-
-
-    if (day > limit){
-        if (sum_ordep >= sum_kcaj){
-            printf("Ordep Ganhou!\n");
-            printf("%.2lf", sum_ordep);
-        } else{
-            printf("Kcaj Ganhou!\n");
-            printf("%.2lf", sum_kcaj);
-        }
-        return;
-    }
-
-    sum_kcaj += p_kcaj;
-    sum_ordep += p_ordep;
-
- 
-
-    int eh_dia_primo = eh_primo(day, 2);
-    int eh_primo_soma_digitos_fatorial_dia = eh_primo(sum_digits(fatorial(day)), 2);
-
-
- 
-    if (eh_dia_primo == 1){
-      
-        sum_kcaj += (p_kcaj * 0.05);
-    }
-
-
-    if (eh_primo_soma_digitos_fatorial_dia == 1){
-       
-        double val = sum_ordep * 0.1;
-
-  
-        sum_kcaj += val;
-        sum_ordep -= val;
-    }
-
-  
-    int fatorial_dia = fatorial(day); 
-    int soma_digitos_fatorial_dia = sum_digits(fatorial_dia);
-
-    if(p_ordep % soma_digitos_fatorial_dia == 0){
-        sum_ordep += 30;
-    }
-
-    if (eh_coprimo(p_ordep, day, 2) == 1){
-        double val = sum_kcaj * 0.1;
-
-        sum_ordep += val;
-        sum_kcaj -= val;
-    }
-
-
-
-    return exec(day + 1, limit, p_kcaj, p_ordep, sum_kcaj,  sum_ordep);
-}
-
-int eh_primo(int n, int div){
-    if(n<=1){
-        return 0;
-    }
-
-    if(n == 2 || n == div){
-        return 1;
-    }
-
-    if (n % div == 0){
-        return 0;
-    }
-
-    return eh_primo(n, div + 1);
-}
-
-int eh_coprimo(int n1, int n2, int div )
-{
-  
+bool coprime(int n1, int n2, int div )
+{  
     if(n1 == 1 || n2 == 1)
-    {
-        return 1;
-    }
-
-  
+        return true;
     if(n1 % div == 0 && n2 % div == 0)
-    {
-        return 0;
-    }
-
- 
-    if(n1 == div || n2 == div){
-        return 1;
-    }
-
-    return eh_coprimo(n1, n2, div + 1);
+        return false;
+    if(n1 == div || n2 == div)
+        return true;
+    return coprime(n1, n2, div + 1);
 }
 
+bool prime(int n, int div){
+    if(n<=1)
+        return false;
+    if(n == 2 || n == div)
+        return true;
+    if (n % div == 0)
+        return false;
+    return prime(n, div + 1);
+}
 
-int sum_digits(int number){
-    if(number < 10) 
+int summ(int numero){
+    if(numero % 10 == numero) 
+        return numero;
+     else 
+        return (numero % 10) + summ(numero / 10);
+}
+
+int fact (int n) {
+	if (n == 0) return 1;
+	else return (n * fact(n - 1));
+}
+
+void kcajP(int n, int kcaj, double * ans1, double * ans2)
+{
+    if(prime(n,2))
+        (*ans1) = (*ans1) + (kcaj * 0.05);
+    if(prime(summ(fact(n)),2))
+        (*ans1) = (*ans1) + (0.1 * (*ans2)), (*ans2) = (*ans2) * 0.9;
+}
+
+void OrdepP(int n, int Ordep, double * ans1, double * ans2)
+{
+    if(!(Ordep % summ(fact(n))))
+        (*ans2) = (*ans2) + 30;
+    if(coprime(Ordep, n, 2))
+        (*ans2) = (*ans2) + (*ans1 * 0.1), (*ans1) = (*ans1 * 0.9);
+}
+
+void solve(int n, int i, double ans1, double ans2, int Cans1, int Cans2){
+    if(i <= n)
     {
-        return number;
+        ans1 += Cans1; 
+        ans2 += Cans2; 
+
+        kcajP(i, Cans1, &ans1, &ans2);
+        OrdepP(i, Cans2, &ans1, &ans2);
+
+        solve(n, ++i, ans1, ans2, Cans1, Cans2);    
     }
+    else
+        printf("%s Ganhou!\n%.2lf\n", (ans1 > ans2) ? "Kcaj" : "Ordep", (ans1 > ans2) ? ans1 : ans2);
     
-    int digit = number % 10;
-    int next_number = number / 10;
-
-    return digit + sum_digits(next_number); 
 }
 
-int fatorial(int number){
-    if (number <= 1){
-        return 1;
-    }
+void main()
+{
+    int n, ans1, ans2;
 
-    return number * fatorial(number - 1);
+    scanf("%d %d %d\n", &n, &ans1, &ans2);
+
+    solve(n, 1, 0, 0, ans1, ans2);
+
 }
