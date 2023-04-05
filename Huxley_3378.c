@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 // 3778 - DUELO CONDICIONAL
+
 int main() {
     
     double Nv1,Dano1,Nv2,Vida2;
