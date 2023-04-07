@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
+
 //900 - Media of Numbers
+
 void repete(int entrada, double num, double soma){
   
     if(entrada == 0){
