@@ -4,7 +4,7 @@
 #include<iso646.h>
 #include<stdbool.h>
 
-//2394 - Pilha Antigo
+//2394 - Old Stack
 //https://thehuxley.com/problem/2394
 
 #define MAX 10
@@ -59,20 +59,6 @@ int pop (void){
     return auxvalor;
 } 
 
-int fullStack(void){
-    
-    if(stack.topo<MAX)
-        return false;  
-    else
-        return true;
-}
-
-int emptyStack(void){
-    if(stack.topo == EMPTY)	
-        return true;
-   else
-        return false;
-}
 
 void printStack(void)
 {
