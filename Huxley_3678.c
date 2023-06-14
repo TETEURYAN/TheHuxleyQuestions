@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <string.h>
+
 //3678 - A FESTA DO JAPA
 int saque(double garrafa){
 	int copo;
