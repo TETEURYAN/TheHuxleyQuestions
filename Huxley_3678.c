@@ -3,6 +3,7 @@
 #include <math.h>
 
 //3678 - A FESTA DO JAPA
+
 int saque(double garrafa){
 	int copo;
 	copo = (garrafa*675.0)/45;
