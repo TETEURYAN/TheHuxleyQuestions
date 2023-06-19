@@ -21,16 +21,15 @@ int main(){
 	if(D<4){
 		return 0;}
 		else{
-			if (Fa<4 && Fb<5 && Fc<3){
+			if (Fa<4 && Fb<5 && Fc<3)
 				printf("Partiu Festa do Japa...Japacama\n");}
-			else if (Fa>4 && Fb<5 && Fc<3){
-				printf("Faltaram %.0lf manjus e %.0lf yakitoris\n", final2, final3);}
-			else if (Fa<4 && Fb<5 && Fc>3){
-				printf("Faltaram %.0lf saques e %.0lf manjus\n", final1, final2);}
-			else if (Fa<4 && Fb>5 && Fc<3){
-				printf("Faltaram %.0lf saques e %.0lf yakitoris\n", final1, final3);}
-			else if(Fa>4 && Fb>5 && Fc>3){
-				printf("Partiu Festa do Japa!");}
+			else if (Fa>4 && Fb<5 && Fc<3)
+				printf("Faltaram %.0lf manjus e %.0lf yakitoris\n", final2, final3);
+			else if (Fa<4 && Fb<5 && Fc>3)
+				printf("Faltaram %.0lf saques e %.0lf manjus\n", final1, final2);
+			else if (Fa<4 && Fb>5 && Fc<3)
+				printf("Faltaram %.0lf saques e %.0lf yakitoris\n", final1, final3);
+			else if(Fa>4 && Fb>5 && Fc>3)
+				printf("Partiu Festa do Japa!");
 			}
-	
 }
