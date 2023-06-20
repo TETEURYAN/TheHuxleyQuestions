@@ -9,6 +9,7 @@ int saque(double garrafa){
 	copo = (garrafa*675.0)/45;
 	return copo;
 }
+
 int main(){
 	double A,B,C,D,total1, total2, total3, Fa, Fb, Fc,razao1, razao2, razao3, final1, final2, final3;
 	scanf("%lf %lf %lf %lf", &A,&B,&C,&D);	
