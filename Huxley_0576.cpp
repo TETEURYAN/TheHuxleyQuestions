@@ -3,7 +3,6 @@ using namespace std;
 
 bool dfs(vector<int> graph[], int u, int now, vector<int> & color)
 {
-
   if (color[u] != -1) return(color[u] != 1 - now);
     color[u] = now;
   for (auto v: graph[u])
