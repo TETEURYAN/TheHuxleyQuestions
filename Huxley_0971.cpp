@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 int prim(vector<pair<int, int>> edges[], int V, int start)
 {
     vector<int> cost(V,INT_MAX);
