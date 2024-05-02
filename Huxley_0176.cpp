@@ -4,7 +4,6 @@
  
 using namespace std;
 
-
 const int N1 = (int)2e5 + 100;
 #define PI 3.14159265358979323846264338327
 #define forn for(int i=0;i<n;i++)
