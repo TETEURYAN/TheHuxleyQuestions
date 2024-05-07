@@ -76,5 +76,4 @@ int main () {
     printf("%s\n", ans ? "Sim" : "Nao");
 
     return 0;
-
 }
