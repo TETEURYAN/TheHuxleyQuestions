@@ -75,13 +75,9 @@ int main () {
         cin >> a;
         prime[i] = a;
     }
-
     sort(all(prime));
-
     for(auto i :prime){
         if(is_prime[i]) cout << i <<" ";
     }
 	
-    return 0;
-
 }
