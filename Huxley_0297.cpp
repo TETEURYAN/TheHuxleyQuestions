@@ -66,10 +66,16 @@ int main () {
 
     int a, b;
     cin >> a >> b;
-
+    
+    bool has = false;
     for(int i = a; i <=b; i++){
-        if(bis(i))cout << i << nl
+        if(bis(i)){
+            cout << i << nl
+            has = true;
+        }
     }
+    
+    if(not has)one
     
 
     return 0;
